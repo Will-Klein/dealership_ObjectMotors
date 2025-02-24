@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Owner {
+public class Customer {
     private String name;
     private String cpf;
     private String phone;
@@ -8,7 +8,7 @@ public class Owner {
     private String email;
     private ArrayList<Vehicle> vehicles;
 
-    public Owner(String name, String cpf, String phone, String address, String email) {
+    public Customer(String name, String cpf, String phone, String address, String email) {
         this.name = name;
         this.cpf = cpf;
         this.phone = phone;

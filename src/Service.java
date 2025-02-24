@@ -3,14 +3,14 @@ public class Service {
     private int price;
     private String date;
     private Vehicle vehicle;
-    private Owner owner;
+    private Customer customer;
 
-    public Service(boolean type, int price, String date, Vehicle vehicle, Owner owner) {
+    public Service(boolean type, int price, String date, Vehicle vehicle, Customer customer) {
         this.type = type;
         this.price = price;
         this.date = date;
         this.vehicle = vehicle;
-        this.owner = owner;
+        this.customer = customer;
     }
 }
 

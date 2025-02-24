@@ -2,12 +2,12 @@ import java.util.ArrayList;
 
 public class ObjectMotors {
     private ArrayList<Vehicle> vehicles;
-    private ArrayList<Owner> owners;
+    private ArrayList<Customer> customers;
     private ArrayList<Service> services;
 
     public ObjectMotors() {
         vehicles = new ArrayList<>();
-        owners = new ArrayList<>();
+        customers = new ArrayList<>();
         services = new ArrayList<>();
     }
 
