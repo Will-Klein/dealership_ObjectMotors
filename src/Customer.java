@@ -17,4 +17,8 @@ public class Customer {
         vehicles = new ArrayList<>();
     }
 
+    public String getCpf(){
+        return cpf;
+    }
+
 }

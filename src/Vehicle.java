@@ -21,5 +21,11 @@ public abstract class Vehicle {
         this.status = status;
     }
 
-    //fzer método get status
+    public String getPlate() {
+        return plate;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
 }
