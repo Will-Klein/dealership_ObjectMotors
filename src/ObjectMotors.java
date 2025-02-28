@@ -84,4 +84,36 @@ public class ObjectMotors {
         services.add(service);
         return true;
     }
+
+    public boolean removeVehicle(Vehicle vehicle) {
+        for (Vehicle v : vehicles) {
+            if (v.getPlate().equals(vehicle.getPlate())){
+                vehicles.remove(v);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean removeCustomer(Customer customer) {
+        for (Customer c : customers) {
+            if (c.getCpf().equals(customer.getCpf())){
+                customers.remove(c);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean removeService(Service service) {
+        for (Service s : services) {
+            if (s.getId() == service.getId()){
+                services.remove(s);
+                return true;
+            }
+        }
+        return false;
+    }
+
+
 }
