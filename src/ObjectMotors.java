@@ -159,4 +159,25 @@ public class ObjectMotors {
                 .filter(v -> v.getMileage() >= lower && v.getMileage() <= upper)
                 .collect(Collectors.toList());
     }
+
+    public List<Car> findAllCars(){
+        return vehicles.stream()
+                .filter(v -> v instanceof Car)
+                .map (v -> (Car) v)
+                .collect(Collectors.toList());
+    }
+
+    public List<Motorcycle> findAllMotorcycle(){
+        return vehicles.stream()
+                .filter(v -> v instanceof Motorcycle)
+                .map(v -> (Motorcycle) v)
+                .collect(Collectors.toList());
+    }
+
+    public List<Truck> findAllTruck(){
+        return vehicles.stream()
+                .filter(v -> v instanceof Truck)
+                .map(v -> (Truck) v)
+                .collect(Collectors.toList());
+    }
 }
