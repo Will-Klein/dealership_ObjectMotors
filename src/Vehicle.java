@@ -6,10 +6,11 @@ public abstract class Vehicle {
     private int year;
     private int hp;            //horse power
     private int mileage;
+    private double price;
     private Customer Customer;
     private Status status;
 
-    public Vehicle (String plate, String brand, String model, String color, int year, int hp, int mileage, Customer customer, Status status) {
+    public Vehicle (String plate, String brand, String model, String color, int year, int hp, int mileage, double price, Customer customer, Status status) {
         this.plate = plate;
         this.brand = brand;
         this.model = model;
@@ -17,15 +18,40 @@ public abstract class Vehicle {
         this.year = year;
         this.hp = hp;
         this.mileage = mileage;
+        this.price = price;
         this.Customer = customer;
         this.status = status;
     }
 
-    public String getPlate() {
+    public String getPlate(){
         return plate;
     }
 
-    public Status getStatus() {
+    public Status getStatus(){
         return status;
+    }
+
+    public Customer getCustomer(){
+        return Customer;
+    }
+
+    public Double getPrice(){
+        return price;
+    }
+
+    public String getBrand(){
+        return brand;
+    }
+
+    public String getModel(){
+        return model;
+    }
+
+    public int getYear(){
+        return year;
+    }
+
+    public int getMileage(){
+        return mileage;
     }
 }
