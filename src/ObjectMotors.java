@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class ObjectMotors {
@@ -160,6 +162,10 @@ public class ObjectMotors {
                 .collect(Collectors.toList());
     }
 
+    public List<Vehicle> findAllVehicles(){
+        return vehicles;
+    }
+
     public List<Car> findAllCars(){
         return vehicles.stream()
                 .filter(v -> v instanceof Car)
@@ -179,5 +185,52 @@ public class ObjectMotors {
                 .filter(v -> v instanceof Truck)
                 .map(v -> (Truck) v)
                 .collect(Collectors.toList());
+    }
+
+    public List<Customer> findAllCustomer(){
+        return customers;
+    }
+
+    public List<Customer> findCustomerByName(String name){
+        return customers.stream()
+                .filter(c -> c.getName().equalsIgnoreCase(name))
+                .collect(Collectors.toList());
+    }
+
+    public Customer findCustomerByCPF(String cpf){
+        return customers.stream()
+                .filter(c -> c.getCpf().equals(cpf))
+                .findFirst()
+                .orElse(null);
+    }
+
+    public Customer findCustomerByEmail(String email){
+        return customers.stream()
+                .filter(c -> c.getEmail().equals(email))
+                .findFirst()
+                .orElse(null);
+    }
+
+    public Customer findCustomerByPhone(String phone){
+        return customers.stream()
+                .filter(c -> c.getPhone().equals(phone))
+                .findFirst()
+                .orElse(null);
+    }
+
+    public List<Customer> findCustomersWithMultipleVehicles(){
+        return customers.stream()
+                .filter(c -> c.getVehicles().size() > 1)
+                .collect(Collectors.toList());
+    }
+
+    public Set<Customer> findCustomersByVehicleStatus(Status status){
+        Set<Customer> c = new HashSet<>();
+        for (Vehicle v : vehicles) {
+            if (v.getStatus() == status) {
+                c.add(v.getCustomer());
+            }
+        }
+        return c;
     }
 }

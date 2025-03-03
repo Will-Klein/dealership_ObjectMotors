@@ -21,4 +21,24 @@ public class Customer {
         return cpf;
     }
 
+    public String getName(){
+        return name;
+    }
+
+    public String getPhone(){
+        return phone;
+    }
+
+    public String getAddress(){
+        return address;
+    }
+
+    public String getEmail(){
+        return email;
+    }
+
+    public ArrayList<Vehicle> getVehicles(){
+        return vehicles;
+    }
+
 }
