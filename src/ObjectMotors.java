@@ -1,7 +1,5 @@
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.time.LocalDate;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class ObjectMotors {
@@ -232,5 +230,60 @@ public class ObjectMotors {
             }
         }
         return c;
+    }
+
+    public Service findServiceById(String id){
+        return services.stream()
+                .filter(s -> s.getId().equals(id))
+                .findFirst()
+                .orElse(null);
+    }
+
+    public List<Service> findServiceByType(Boolean type){
+        return services.stream()
+                .filter(s -> s.getType() == type)
+                .collect(Collectors.toList());
+    }
+
+    public List<Service> findServicesByInitalDate(LocalDate initDate){
+        return services.stream()
+                .filter(s -> s.getInitialDate().equals(initDate))
+                .collect(Collectors.toList());
+    }
+
+    public List<Service> findServicesByEndDate(LocalDate endDate){
+        return services.stream()
+                .filter(s -> s.getEndDate().equals(endDate))
+                .collect(Collectors.toList());
+    }
+
+    public List<Service> findServicesByDateRange(LocalDate startRange, LocalDate endRange){
+        return services.stream()
+                .filter(s -> s.getEndDate().isAfter(startRange) && s.getEndDate().isBefore(endRange) || s.getInitialDate().isAfter(startRange) && s.getInitialDate().isBefore(endRange))
+                .collect(Collectors.toList());
+    }
+
+    public List<Service> findServicesByPriceRange (double minPrice, double maxPrice){
+        return services.stream()
+                .filter(s -> s.getPrice() > minPrice && s.getPrice() < maxPrice)
+                .collect(Collectors.toList());
+    }
+
+    public List<Service> findServicesByPrice(double price){
+        return services.stream()
+                .filter(s -> s.getPrice() == price)
+                .collect(Collectors.toList());
+    }
+
+    public List<Service> findServicesByVehicle(String plate){
+        return services.stream()
+                .filter(s -> s.getVehicle().getPlate().equals(plate))
+                .collect(Collectors.toList());
+    }
+
+    public List<Service> findServicesByCustomer(String cpf){
+        return services.stream()
+                .filter(s -> s.getCustomer().getCpf().equals(cpf))
+                .collect(Collectors.toList());
     }
 }
